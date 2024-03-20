@@ -26,6 +26,10 @@ class Crawler:
         data = {
             'url': url,
             'title': str(soup.title.string) if soup.title else None,
+            'time': time.strftime('%Y-%m-%d %H:%M:%S'),
+            'text_size': len(soup.get_text()), # 'size' is the length of the 'text' field, not the size of the HTML file
+            'html_size': len(str(soup)),
+            'html': str(soup),
             'text': soup.get_text(),
             'links': set(),
             'images': [urljoin(self.base_url, img['src']) for img in soup.find_all('img', src=True)]
@@ -33,6 +37,8 @@ class Crawler:
 
         for a in soup.find_all('a', href=True):
             link = self.get_path(urljoin(self.base_url, a['href']))
+            if link == url:
+                continue
             parsed_link = urlparse(link)
             if parsed_link.netloc == "namu.wiki" and parsed_link.path.startswith("/w/"):
                 data['links'].add(link)
