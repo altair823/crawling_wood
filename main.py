@@ -71,9 +71,15 @@ class Crawler:
                     .replace('<', '_lt_')
                     .replace('>', '_gt_')
                     .replace('|', '_pipe_'))
-        with open(f'jsons/{filename}.json', 'w', encoding='utf-8') as f:
+        filename = f'jsons/{filename}.json'
+        if os.path.exists(filename):
+            print(f"Already crawled {url}")
+            return data
+
+        with open(filename, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
+        print(f"Crawled {url}")
         return data
 
     def crawl(self):
@@ -84,7 +90,6 @@ class Crawler:
                 try:
                     soup = self.get_html_data(url)
                     data = self.parse_html(soup, url)
-                    print(f"Crawled {url}")
                     for link in data['links']:
                         if link not in self.visited:
                             self.queue.put(link)
