@@ -24,6 +24,7 @@ class Crawler:
     def save_queue(self, sig, frame):
         with open('queue.txt', 'w', encoding='utf-8') as f:
             f.write('\n'.join(list(self.queue.queue)))
+        sys.exit(0)
 
     def get_html_data(self, url):
         response = requests.get(url)
