@@ -77,7 +77,7 @@ class Crawler:
         return data
 
     def crawl(self):
-        while True:
+        while self.queue.qsize() > 0:
             url = self.queue.get()
             if url not in self.visited:
                 self.visited.add(url)
