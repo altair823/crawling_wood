@@ -43,7 +43,7 @@ class Crawler:
             'text_size': len(soup.get_text()),
             # 'size' is the length of the 'text' field, not the size of the HTML file
             'html_size': len(str(soup)),
-            'html': str(soup),
+            # 'html': str(soup),
             'text': soup.get_text(),
             'links': set(),
             'images': [urljoin(self.base_url, img['src']) for img in soup.find_all('img', src=True)]

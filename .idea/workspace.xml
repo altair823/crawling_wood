@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ab8682a-4b23-40ec-bb12-176a8eb00e9b" name="Changes" comment="save not crawled links to file">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="7ab8682a-4b23-40ec-bb12-176a8eb00e9b" name="Changes" comment="handle exit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +96,7 @@
       <updated>1710959562725</updated>
       <workItem from="1710959568227" duration="140000" />
       <workItem from="1710959718603" duration="8637000" />
-      <workItem from="1710999076019" duration="2047000" />
+      <workItem from="1710999076019" duration="2570000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -126,7 +122,31 @@
       <option name="project" value="LOCAL" />
       <updated>1711002825771</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="handle no queue file">
+      <option name="closed" value="true" />
+      <created>1711003309903</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711003309903</updated>
+    </task>
+    <task id="LOCAL-00005" summary="handle no queue file">
+      <option name="closed" value="true" />
+      <created>1711003314892</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711003314892</updated>
+    </task>
+    <task id="LOCAL-00006" summary="handle exit">
+      <option name="closed" value="true" />
+      <created>1711003381880</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711003381880</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,19 +155,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="save not crawled links to file" />
-    <option name="LAST_COMMIT_MESSAGE" value="save not crawled links to file" />
+    <MESSAGE value="handle no queue file" />
+    <MESSAGE value="handle exit" />
+    <option name="LAST_COMMIT_MESSAGE" value="handle exit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>58</line>
+          <line>59</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>94</line>
+          <line>95</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
