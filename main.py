@@ -105,10 +105,13 @@ def read_queue():
 
 
 os.makedirs('jsons', exist_ok=True)
-external_temp_queue = read_queue()
-external_queue = Queue()
-for url in external_temp_queue:
-    external_queue.put(url)
+if os.path.exists('queue.txt'):
+    external_temp_queue = read_queue()
+    external_queue = Queue()
+    for url in external_temp_queue:
+        external_queue.put(url)
+else:
+    external_queue = None
 
 start_url = sys.argv[1]
 crawler = Crawler(start_url, external_queue)
