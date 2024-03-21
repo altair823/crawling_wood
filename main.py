@@ -1,3 +1,6 @@
+import os
+import sys
+import signal
 from bs4 import BeautifulSoup
 import requests
 from queue import Queue
@@ -6,12 +9,21 @@ import time
 from urllib.parse import urljoin, quote, urlparse
 import json
 
+
 class Crawler:
-    def __init__(self, start_url):
+    def __init__(self, base_url, external_queue=None):
         self.visited = set()
-        self.queue = Queue()
-        self.queue.put(start_url)
-        self.base_url = start_url
+        self.queue = None
+        if external_queue is None or external_queue.empty():
+            self.queue = Queue()
+            self.queue.put(base_url)
+        else:
+            self.queue = external_queue
+        self.base_url = base_url
+
+    def save_queue(self, sig, frame):
+        with open('queue.txt', 'w', encoding='utf-8') as f:
+            f.write('\n'.join(list(self.queue.queue)))
 
     def get_html_data(self, url):
         response = requests.get(url)
@@ -27,7 +39,8 @@ class Crawler:
             'url': url,
             'title': str(soup.title.string) if soup.title else None,
             'time': time.strftime('%Y-%m-%d %H:%M:%S'),
-            'text_size': len(soup.get_text()), # 'size' is the length of the 'text' field, not the size of the HTML file
+            'text_size': len(soup.get_text()),
+            # 'size' is the length of the 'text' field, not the size of the HTML file
             'html_size': len(str(soup)),
             'html': str(soup),
             'text': soup.get_text(),
@@ -58,7 +71,7 @@ class Crawler:
                     .replace('>', '_gt_')
                     .replace('|', '_pipe_'))
         with open(f'jsons/{filename}.json', 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4, ensure_ascii = False)
+            json.dump(data, f, indent=4, ensure_ascii=False)
 
         return data
 
@@ -85,9 +98,19 @@ class Crawler:
     def start_crawling(self):
         self.crawl()
 
-# create jsons folder
-import os
-os.makedirs('jsons', exist_ok=True)
 
-crawler = Crawler("https://namu.wiki/w/Microsoft%20Azure")
+def read_queue():
+    with open('queue.txt', 'r', encoding='utf-8') as f:
+        return f.read().split('\n')
+
+
+os.makedirs('jsons', exist_ok=True)
+external_temp_queue = read_queue()
+external_queue = Queue()
+for url in external_temp_queue:
+    external_queue.put(url)
+
+start_url = sys.argv[1]
+crawler = Crawler(start_url, external_queue)
+signal.signal(signal.SIGINT, crawler.save_queue)
 crawler.start_crawling()
