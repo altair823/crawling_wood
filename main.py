@@ -90,7 +90,7 @@ class Crawler:
                 with open('errors.txt', 'a', encoding='utf-8') as f:
                     f.write(f'Error in {url}: {e}\n')
             self.queue.task_done()
-            time.sleep(0.5)
+            time.sleep(1)
 
     def start_crawling(self):
         self.queue.put(self.base_url)
