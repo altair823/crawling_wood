@@ -4,15 +4,15 @@ import signal
 from bs4 import BeautifulSoup
 import requests
 from queue import Queue
-from threading import Thread
 import time
 from urllib.parse import urljoin, quote, urlparse
 import json
+from bloom_filter2 import BloomFilter
 
 
 class Crawler:
     def __init__(self, base_url, external_queue=None):
-        self.visited = set()
+        self.visited = BloomFilter(max_elements=1000000, error_rate=0.05)
         self.queue = None
         if external_queue is None or external_queue.empty():
             self.queue = Queue()
