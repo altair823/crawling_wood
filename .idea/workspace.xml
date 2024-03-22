@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ab8682a-4b23-40ec-bb12-176a8eb00e9b" name="Changes" comment="replace visited set to bloom filter">
-      <change afterPath="$PROJECT_DIR$/cleanup.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sqlite_set.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7ab8682a-4b23-40ec-bb12-176a8eb00e9b" name="Changes" comment="replace queue to sqlite3 based queue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +137,7 @@
       <workItem from="1710999076019" duration="4001000" />
       <workItem from="1711034885587" duration="473000" />
       <workItem from="1711036600624" duration="666000" />
-      <workItem from="1711123511112" duration="6016000" />
+      <workItem from="1711123511112" duration="8339000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -223,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711124777280</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="replace queue to sqlite3 based queue">
+      <option name="closed" value="true" />
+      <created>1711132630231</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711132630231</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +242,8 @@
     <MESSAGE value="fix loop" />
     <MESSAGE value="fix dup" />
     <MESSAGE value="replace visited set to bloom filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="replace visited set to bloom filter" />
+    <MESSAGE value="replace queue to sqlite3 based queue" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace queue to sqlite3 based queue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

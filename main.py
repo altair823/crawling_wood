@@ -1,6 +1,5 @@
 import os
 import sys
-import signal
 from bs4 import BeautifulSoup
 import requests
 # from queue import Queue
@@ -8,7 +7,6 @@ from persistqueue import Queue
 import time
 from urllib.parse import urljoin, quote, urlparse
 import json
-from bloom_filter2 import BloomFilter
 
 from sqlite_set import SqliteSet
 
