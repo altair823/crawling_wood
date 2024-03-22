@@ -77,13 +77,13 @@ class Crawler:
     def crawl(self):
         while self.queue.qsize() > 0:
             url = self.queue.get()
-            self.visited.add(url)
             try:
                 soup = self.get_html_data(url)
                 data = self.parse_html(soup, url)
                 for link in data['links']:
                     if not self.visited.contains(link):
                         self.queue.put(link)
+                        self.visited.add(link)
             except Exception as e:
                 print(f"Error in: {e}")
                 # write error to file
