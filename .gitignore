@@ -2,4 +2,5 @@
 .idea
 jsons
 errors.txt
-queue.txt
+/queue
+bloom.bin
