@@ -19,6 +19,8 @@ class Crawler:
 
     def get_html_data(self, url):
         response = requests.get(url)
+        # if not 200, raise an exception
+        response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
         return soup
 
