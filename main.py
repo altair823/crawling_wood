@@ -79,7 +79,17 @@ class Crawler:
     def crawl(self):
         while self.queue.qsize() > 0:
             url = self.queue.get()
-            if url[:-4] == '.jpg' or url[:-4] == '.png' or url[:-4] == '.gif' or url[:-4] == '.svg' or url[:-5] == '.webp':
+            if url[-4:] == '.png' \
+                    or url[-4:] == '.jpg' \
+                or url[-4:] == '.gif' \
+                or url[-4:] == '.pdf' \
+                or url[-4:] == '.svg' \
+                or url[-4:] == '.mp4' \
+                or url[-4:] == '.mp3' \
+                or url[-4:] == '.ogg' \
+                or url[-5:] == '.webm' \
+                or url[-4:] == '.zip' \
+                or url[-5:] == '.webp':
                 continue
             try:
                 soup = self.get_html_data(url)
