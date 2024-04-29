@@ -79,6 +79,8 @@ class Crawler:
     def crawl(self):
         while self.queue.qsize() > 0:
             url = self.queue.get()
+            if url[:-4] == '.jpg' or url[:-4] == '.png' or url[:-4] == '.gif' or url[:-4] == '.svg' or url[:-5] == '.webp':
+                continue
             try:
                 soup = self.get_html_data(url)
                 data = self.parse_html(soup, url)
