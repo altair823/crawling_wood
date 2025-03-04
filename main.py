@@ -1,4 +1,4 @@
-import os
+# import os
 import sys
 from bs4 import BeautifulSoup
 import requests
@@ -6,10 +6,15 @@ import requests
 from persistqueue import Queue
 import time
 from urllib.parse import urljoin, quote, urlparse
-import json
+# import json
+
+from pymongo import MongoClient
 
 from sqlite_set import SqliteSet
 
+client = MongoClient("mongodb://namucrawler:08230734@192.168.0.156:27017/namudump")
+db = client["namudump"]
+namudb = db['contents']
 
 class Crawler:
     def __init__(self, base_url):
@@ -66,12 +71,13 @@ class Crawler:
                     .replace('|', '_pipe_')
                     .replace('\\', '_backslash_'))
         filename = f'jsons/{filename}.json'
-        if os.path.exists(filename):
-            print(f"Already crawled {url}")
-            return data
+        # if os.path.exists(filename):
+        #     print(f"Already crawled {url}")
+        #     return data
 
-        with open(filename, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
+        # with open(filename, 'w', encoding='utf-8') as f:
+        #     json.dump(data, f, indent=4, ensure_ascii=False)
+        namudb.insert_one(data)
 
         print(f"Crawled {url}")
         return data
@@ -111,7 +117,7 @@ class Crawler:
         self.crawl()
 
 
-os.makedirs('jsons', exist_ok=True)
+# os.makedirs('jsons', exist_ok=True)
 
 start_url = sys.argv[1]
 crawler = Crawler(start_url)

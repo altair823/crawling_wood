@@ -1,0 +1,4 @@
+requests~=2.32.3
+beautifulsoup4~=4.13.3
+persist-queue~=1.0.0
+pymongo~=4.11.2
